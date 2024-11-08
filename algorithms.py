@@ -46,12 +46,18 @@ def dfs_maze_solver(maze_graph, start, destination, path=None, visited=None):
 
 def dijkstra(graph, source, destination):
     #initialize distances to infinity and set source distance
-    distances = {node: float('inf') for node in graph}
+
+    #distances = {node: float('inf') for node in graph}
+    distances = {node: float('inf') for node in graph.nodes()}
+
     distances[source]=0
     #priority queue to store distance and node information
     priority_queue = [(0, source)]
     #dictionary to keep track of shortest path
-    previous_nodes = {node: None for node in graph}
+
+    #previous_nodes = {node: None for node in graph}
+    previous_nodes = {node: None for node in graph.nodes()}
+
     while priority_queue:
         current_distance, current_node = heapq.heappop(priority_queue)
         if current_node == destination:
@@ -59,7 +65,11 @@ def dijkstra(graph, source, destination):
         #if current distance is already higher than the recorded one, then  skip it
         if current_distance > distances[current_node]:
             continue
-        for neighbor, weight in graph[current_node].items():
+
+       # for neighbor, weight in graph[current_node].items():
+        for neighbor in graph.neighbors(current_node):
+            weight = graph[current_node][neighbor]['weight']
+
             #calc new distance to the neighbor
             distance = current_distance + weight
 
