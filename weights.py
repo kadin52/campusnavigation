@@ -20,7 +20,10 @@ def weights(adj_list,G):
     G[1][53]['weight'] = 75
     G[43][1]['weight'] = 67
     G[43][73]['weight'] = 50
-    G[43][14]['weight'] = 1 #edited #87
+
+    G[43][14]['weight'] = 87 #edited #87
+    G[14][43]['weight'] = 87  # edited
+
     G[2][119]['weight'] = 26
     G[2][30]['weight'] = 17
     G[119][2]['weight'] = 26
@@ -105,7 +108,7 @@ def weights(adj_list,G):
 
     G[14][57]['weight'] = 46
     G[14][23]['weight'] = 65
-    G[14][43]['weight'] = 1#edited
+
     G[14][68]['weight'] = 41
 
     G[57][14]['weight'] = 46
